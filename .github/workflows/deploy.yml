@@ -15,10 +15,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22.13.1'  # Ou la version que vous utilisez
+          node-version: '18.17.0'  # Changé pour une version LTS stable de Node.js
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm install
+          npm install @next/swc-linux-x64-gnu @next/swc-linux-x64-musl
 
       - name: Build
         run: npm run build
