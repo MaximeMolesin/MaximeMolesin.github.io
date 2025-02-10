@@ -4,12 +4,25 @@ on:
   push:
     branches:
       - main
+  # Permet de lancer manuellement le workflow
+  workflow_dispatch:
+
+# Autoriser une seule exécution simultanée
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # Environnement pages pour GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: write
+      pages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -18,19 +31,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.17.0'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: |
           npm run build
           touch out/.nojekyll
-          cp .nojekyll out/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: out
-          branch: gh-pages
-          clean: true
+        id: deployment
+        uses: actions/deploy-pages@v4
