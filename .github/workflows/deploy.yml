@@ -25,6 +25,7 @@ jobs:
       - name: Build
         run: |
           npm run build
+          ls -la out/
           touch out/.nojekyll
 
       - name: Deploy to GitHub Pages
