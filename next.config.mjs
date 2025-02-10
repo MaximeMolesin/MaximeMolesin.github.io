@@ -24,6 +24,7 @@ const nextConfig = {
   output: 'export',
   basePath: '',
   assetPrefix: '',
+  trailingSlash: true,
 }
 
 mergeConfig(nextConfig, userConfig)
