@@ -10,22 +10,22 @@ import "slick-carousel/slick/slick-theme.css"
 const companies = [
   {
     name: "SHOM",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-DXwFJUk59PVLb8XO4FseNAXGdxdQ5Z.png",
+    logo: "/images/companies/shom.png",
     link: "https://www.shom.fr/",
   },
   {
     name: "UQAC",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-uqUPda4Q3ye5OOKlhNd8h9S9LFoZ85.png",
+    logo: "/images/companies/uqac.png",
     link: "https://www.uqac.ca/",
   },
   {
     name: "ENIB",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0oIaepOBGzCU20U1V5hp3CL0umquPz.png",
+    logo: "/images/companies/enib.png",
     link: "https://www.enib.fr/",
   },
   {
     name: "Novagen Conseil",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oT2DcqVrCOw3M89xD1mrCsmnLt9clj.png",
+    logo: "/images/companies/novagen.png",
     link: "https://www.novagen.tech/",
   },
 ]
