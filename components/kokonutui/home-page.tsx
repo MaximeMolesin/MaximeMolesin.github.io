@@ -3,11 +3,12 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { useState, useRef } from "react"
-import { X } from "lucide-react"
+import { useState, useRef, useEffect } from "react"
+import { X, Moon, Sun } from "lucide-react"
 import ProfessionalExperiences from "../professional-experiences"
 import TechnologyBanner from "../TechnologyBanner"
 import CompanyBanner from "../CompanyBanner"
+import { useTheme } from "next-themes"
 
 function FloatingPaths({ position }: { position: number }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
@@ -97,6 +98,8 @@ function ContactPopup({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 export default function HomePage() {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [currentSection, setCurrentSection] = useState<"home" | "experiences">("home")
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
   const name = "Maxime Molesin"
   const title = "Engineer, M. Sc."
 
@@ -109,6 +112,15 @@ export default function HomePage() {
   const techBannerY = useTransform(scrollYProgress, [0, 1], [0, 25])
   const companyBannerY = useTransform(scrollYProgress, [0, 1], [0, -25])
 
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+
   return (
     <div ref={containerRef} className="relative min-h-screen w-full flex flex-col bg-white dark:bg-neutral-950">
       <div className="absolute inset-0">
@@ -117,7 +129,8 @@ export default function HomePage() {
       </div>
 
       <nav className="sticky top-0 z-20 w-full bg-white/30 dark:bg-black/30 backdrop-blur-sm shadow-md">
-        <div className="container mx-auto px-4 py-2 flex justify-center space-x-4">
+        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+          <div className="flex space-x-4">
           <Button
             variant="outline"
             onClick={() => setCurrentSection("home")}
@@ -135,6 +148,10 @@ export default function HomePage() {
             }`}
           >
             Professional Experiences
+            </Button>
+          </div>
+          <Button variant="ghost" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="p-2">
+            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
         </div>
       </nav>
@@ -144,7 +161,7 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-4xl backdrop-blur-sm bg-white/30 dark:bg-black/30 p-8 rounded-2xl shadow-lg mb-8"
+          className="w-full max-w-4xl backdrop-blur-sm bg-white/30 dark:bg-black/30 p-8 rounded-2xl shadow-lg mb-16 border-2 border-white/40 dark:border-black/40"
         >
           {currentSection === "home" ? (
             <div className="text-center">

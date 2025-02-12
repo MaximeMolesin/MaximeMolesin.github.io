@@ -25,6 +25,8 @@ const nextConfig = {
   basePath: '',
   assetPrefix: '',
   trailingSlash: true,
+  reactStrictMode: true,
+  swcMinify: true,
 }
 
 mergeConfig(nextConfig, userConfig)

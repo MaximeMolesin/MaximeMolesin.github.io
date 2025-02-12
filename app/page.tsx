@@ -1,7 +1,6 @@
-"use client"
+import HomePage from "@/components/kokonutui/home-page"
 
-import HomePage from "../components/kokonutui/home-page"
-
-export default function SyntheticV0PageForDeployment() {
+export default function Page() {
   return <HomePage />
 }
+
