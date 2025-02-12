@@ -59,28 +59,21 @@ const CompanyBanner: React.FC = () => {
 
   return (
     <div className="w-full backdrop-blur-sm bg-white/30 dark:bg-black/30 py-8">
-      <Slider {...settings} className="w-full px-8">
+      <Slider {...settings}>
         {companies.map((company) => (
-          <div key={company.name} className="flex items-center justify-center">
+          <div key={company.name} className="px-4">
             <Link
               href={company.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-full h-full px-4"
+              className="block transition-transform hover:scale-110 focus:scale-110"
             >
               <Image
-                src={company.logo || "/placeholder.svg"}
+                src={company.logo}
                 alt={company.name}
-                width={150}
-                height={150}
-                className={`transition-transform duration-300 ease-in-out hover:scale-110 ${
-                  company.name === "UQAC" ||
-                  company.name === "ENIB" ||
-                  company.name === "SHOM" ||
-                  company.name === "Novagen Conseil"
-                    ? ""
-                    : "filter dark:invert"
-                }`}
+                width={100}
+                height={100}
+                className="mx-auto filter dark:invert"
               />
             </Link>
           </div>

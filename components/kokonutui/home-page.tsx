@@ -106,8 +106,8 @@ export default function HomePage() {
     offset: ["start end", "end start"],
   })
 
-  const techBannerY = useTransform(scrollYProgress, [0, 1], [0, 50])
-  const companyBannerY = useTransform(scrollYProgress, [0, 1], [0, -50])
+  const techBannerY = useTransform(scrollYProgress, [0, 1], [0, 25])
+  const companyBannerY = useTransform(scrollYProgress, [0, 1], [0, -25])
 
   return (
     <div ref={containerRef} className="relative min-h-screen w-full flex flex-col bg-white dark:bg-neutral-950">
@@ -243,12 +243,20 @@ export default function HomePage() {
         </motion.div>
       </div>
 
-      <div className="w-full">
-        <motion.div style={{ y: techBannerY }} transition={{ type: "spring", stiffness: 50 }}>
+      <div className="w-full space-y-4">
+        <motion.div 
+          style={{ y: techBannerY }} 
+          transition={{ type: "spring", stiffness: 50 }}
+          className="relative z-10"
+        >
           <TechnologyBanner />
         </motion.div>
 
-        <motion.div style={{ y: companyBannerY }} transition={{ type: "spring", stiffness: 30 }}>
+        <motion.div 
+          style={{ y: companyBannerY }} 
+          transition={{ type: "spring", stiffness: 30 }}
+          className="relative z-0"
+        >
           <CompanyBanner />
         </motion.div>
       </div>
