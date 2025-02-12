@@ -7,11 +7,11 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 const technologies = [
-  { name: "Python", logo: "/logos/python.svg" },
-  { name: "TensorFlow", logo: "/logos/tensorflow.svg" },
-  { name: "Docker", logo: "/logos/docker.svg" },
-  { name: "PostgreSQL", logo: "/logos/postgresql.svg" },
-  { name: "TypeScript", logo: "/logos/typescript.svg" },
+  { name: "Python", logo: "/logos/python.png" },
+  { name: "TensorFlow", logo: "/logos/tensorflow.png" },
+  { name: "Docker", logo: "/logos/docker.png" },
+  { name: "PostgreSQL", logo: "/logos/postgresql.png" },
+  { name: "TypeScript", logo: "/logos/typescript.png" },
 ]
 
 const TechnologyBanner: React.FC = () => {
