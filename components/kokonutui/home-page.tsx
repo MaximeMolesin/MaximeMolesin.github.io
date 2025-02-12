@@ -191,10 +191,10 @@ export default function HomePage() {
                   className="w-32 h-32 rounded-full overflow-hidden mb-4 ring-2 ring-white/50 dark:ring-black/50"
                 >
                   <Image
-                    src="/placeholder.svg"
+                    src="/images/moi_photo.jpg"
                     alt="Maxime Molesin"
-                    width={128}
-                    height={128}
+                    width={164}
+                    height={164}
                     className="object-cover"
                   />
                 </motion.div>

@@ -63,30 +63,24 @@ const TechnologyBanner: React.FC = () => {
   }
 
   return (
-    <div className="w-full backdrop-blur-sm bg-white/30 dark:bg-black/30 py-8">
-      <Slider {...settings}>
-        {technologies.map((tech) => (
-          <div key={tech.name} className="px-4">
-            <Link 
-              href={tech.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block transition-transform hover:scale-110 focus:scale-110"
-            >
+    <div className="w-full backdrop-blur-sm bg-white/30 dark:bg-black/30 py-8 overflow-hidden">
+      <div className="w-[calc(100%+200px)] -ml-[100px]">
+        <Slider {...settings}>
+          {technologies.map((tech) => (
+            <div key={tech.name} className="px-4 flex items-center justify-center h-24">
               <Image
-                src={tech.logo}
+                src={tech.logo || "/placeholder.svg"}
                 alt={tech.name}
                 width={100}
                 height={100}
-                className="mx-auto filter dark:invert"
+                className="mx-auto filter dark:invert max-h-full w-auto"
               />
-            </Link>
-          </div>
-        ))}
-      </Slider>
+            </div>
+          ))}
+        </Slider>
+      </div>
     </div>
   )
 }
 
 export default TechnologyBanner
-
