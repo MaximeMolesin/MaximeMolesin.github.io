@@ -12,14 +12,35 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    title: "Data Engineer Internship | AI Developer",
-    company: "Company Name",
+    title: "Data engineer internship | AI developer",
+    company: "Novagen Conseil",
     location: "Neuilly-sur-Seine",
     period: "Sept. 2024 - Jan. 2025",
     responsibilities: [
-      "Development of an LLM platform with integration of Hugging Face and llamaIndex",
-      "Optimization of processing times by CUDA Mirroring (40% performance gain)",
-      "Production on AWS cluster with Graylog monitoring",
+      <span key="llm">
+        Development of an LLM platform : {" "}
+        <a 
+          href="https://quantalogic.app/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 underline"
+        >
+          Quantalogic
+        </a>
+      </span>,
+      "Implementation of TypeSense (search and database of prompts)",
+      <span key="aws">
+        Use of generative AI ({" "}
+        <a 
+          href="https://labs.ovhcloud.com/en/ai-endpoints/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 underline"
+        >
+          OVH AI Endpoints
+        </a>{" "}
+        ) to enrich a database.{" "}
+      </span>,
     ],
   },
   {
@@ -29,8 +50,8 @@ const experiences: Experience[] = [
     period: "June 2022 - Dec. 2022",
     responsibilities: [
       "Python API design for bathymetric data processing",
-      "Automating ETL Flows with Apache Airflow",
-      "25% reduction in analysis time for oceanographic surveys",
+      "Automating ETL Flows with Caris BDB",
+      "25% reduction in extraction time for oceanographic surveys",
     ],
   },
 ]

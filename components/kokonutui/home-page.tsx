@@ -147,7 +147,7 @@ export default function HomePage() {
               currentSection === "experiences" ? "border-neutral-800 dark:border-neutral-200" : "border-transparent"
             }`}
           >
-            Professional Experiences
+            Professional experiences
             </Button>
           </div>
           <Button variant="ghost" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="p-2">
