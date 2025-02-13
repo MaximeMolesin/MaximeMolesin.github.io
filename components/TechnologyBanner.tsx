@@ -73,7 +73,7 @@ const TechnologyBanner: React.FC = () => {
                 alt={tech.name}
                 width={100}
                 height={100}
-                className="mx-auto filter dark:invert max-h-full w-auto"
+                className="mx-auto max-h-full w-auto"
               />
             </div>
           ))}

@@ -74,14 +74,7 @@ const CompanyBanner: React.FC = () => {
                   alt={company.name}
                   width={150}
                   height={150}
-                  className={`transition-transform duration-300 ease-in-out hover:scale-110 max-h-full w-auto ${
-                    company.name === "UQAC" ||
-                    company.name === "ENIB" ||
-                    company.name === "SHOM" ||
-                    company.name === "Novagen Conseil"
-                      ? ""
-                      : "filter dark:invert"
-                  }`}
+                  className="transition-transform duration-300 ease-in-out hover:scale-110 max-h-full w-auto"
                 />
               </Link>
             </div>
